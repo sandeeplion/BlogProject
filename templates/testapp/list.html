@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html'%}
+{% block title_block %}SANDEEP Blog HomePage{% endblock %}
+{% block content_block %}
+<h1>SANDEEP's Blog</h1>
+{% for post in list_view%}
+<h3><a href="{{post.get_absolute_url}}">{{post.title}}</a></h3>
+<p id='date'>Published on {{post.publish}} by {{post.author|title}}</p>
+{{post.body|truncatewords:30|linebreaks}}
+{% endfor %}
+{% include 'testapp/pagination.html' with page=list_view %}
+{% endblock %}
