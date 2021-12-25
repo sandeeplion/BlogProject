@@ -19,7 +19,6 @@ from BlogApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.post_list_view),
-    #re_path('tag/(?P<tag_slug>[-\w]+)/$',views.post_list_view,name='post_list_by_tag_name'),
     re_path('(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<post>[-\w]+)/$',views.post_detail_view,name='post_detail'),
     re_path('(?P<id>\d+)/share/$', views.mail_send_view),
 ]
